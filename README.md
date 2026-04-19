@@ -61,3 +61,16 @@ This architecture supports scalability, fault tolerance, and maintainability, al
 - Implemented business rules for minimum and maximum inventory constraints to ensure data integrity
 - Mapped the application to a scalable AWS architecture, including EC2, RDS, and load balancing concepts
 - Demonstrated understanding of cloud design principles, including scalability, availability, and monitoring
+
+## Architecture Diagram
+
+User (Browser)
+        ↓
+Application Load Balancer
+        ↓
+EC2 / Elastic Beanstalk (Spring Boot Application)
+        ↓
+Amazon RDS (Database)
+
+Monitoring: Amazon CloudWatch  
+Security: IAM Roles and Security Groups
