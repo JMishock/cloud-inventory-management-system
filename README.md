@@ -34,14 +34,17 @@ The application follows a layered design:
 - Validation layer: inventory and business rule enforcement
 
 ## Solutions Architect Perspective
-From a cloud architecture perspective, this application can be deployed as a scalable web application using AWS services such as:
 
-- Amazon EC2 or Elastic Beanstalk for application hosting
-- Amazon RDS for relational database storage
-- Application Load Balancer for traffic distribution
-- Auto Scaling for elasticity
-- Amazon CloudWatch for logging and monitoring
-- IAM for secure administrative access
+This application can be deployed as a scalable, cloud-based system using AWS services with the following architecture:
+
+- Compute Layer: The Spring Boot application can be hosted on Amazon EC2 instances or deployed using Elastic Beanstalk for simplified management
+- Database Layer: Amazon RDS can be used to provide a managed relational database for storing product and inventory data
+- Load Balancing: An Application Load Balancer can distribute incoming traffic across multiple application instances to ensure high availability
+- Auto Scaling: Auto Scaling Groups can automatically adjust the number of EC2 instances based on demand, ensuring performance during peak usage
+- Monitoring and Logging: Amazon CloudWatch can be used to monitor application performance, log activity, and trigger alerts
+- Security: AWS IAM can control access to resources, and security groups can restrict network traffic to the application and database layers
+
+This architecture supports scalability, fault tolerance, and maintainability, aligning with AWS Well-Architected Framework principles.
 
 ## Future Enhancements
 - Replace server-rendered pages with a REST API and modern front-end
