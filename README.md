@@ -50,3 +50,11 @@ From a cloud architecture perspective, this application can be deployed as a sca
 - Implement CI/CD deployment pipelines
 - Add monitoring dashboards and alerting
 - Store static assets and backups in Amazon S3
+
+## Resume Highlights
+
+- Designed and implemented a Spring Boot inventory management application supporting product-part relationships and inventory validation logic
+- Applied layered architecture principles, including controller, service, and data access layers
+- Implemented business rules for minimum and maximum inventory constraints to ensure data integrity
+- Mapped the application to a scalable AWS architecture, including EC2, RDS, and load balancing concepts
+- Demonstrated understanding of cloud design principles, including scalability, availability, and monitoring
