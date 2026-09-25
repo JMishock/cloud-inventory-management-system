@@ -1,76 +1,112 @@
 # Cloud-Ready Inventory Management System
 
+A Spring Boot inventory management application for managing products, parts, inventory constraints, and purchasing workflows, with a proposed scalable AWS deployment architecture.
+
 ## Project Overview
-This project is a Spring Boot-based inventory management application designed to manage parts and products for a retail supply business. The system supports inventory tracking, product-part relationships, and business rules for minimum and maximum inventory levels.
 
-This project was originally built as a Java Spring application and is now being reframed as a Solutions Architect portfolio project by mapping the system to a scalable AWS cloud architecture.
+The application manages inventory for a retail supply business where products are composed of associated parts. It supports inventory tracking, product-part relationships, purchasing workflows, and validation of minimum and maximum inventory levels.
 
-## Business Use Case
-A retail technology supply business needs a system to manage inventory for products made up of multiple parts. The application helps track product availability, maintain valid inventory ranges, and support product purchasing workflows.
+The project combines a Java/Spring Boot application with cloud architecture planning for scalability, availability, monitoring, and maintainability.
 
-## Tech Stack
+## Core Features
+
+- Add and update in-house parts
+- Add and update outsourced parts
+- Create and manage products
+- Associate parts with products
+- Track minimum and maximum inventory levels
+- Validate inventory constraints
+- Purchase products through a "Buy Now" workflow
+- Prevent invalid inventory submissions
+
+## Technology Stack
+
 - Java
 - Spring Boot
 - Thymeleaf
-- JPA / Hibernate
+- Spring Data JPA / Hibernate
 - H2 Database
-- HTML/CSS
+- HTML / CSS
+- Maven
 
-## Core Features
-- Add and update in-house parts
-- Add and update outsourced parts
-- Track minimum and maximum inventory levels
-- Validate inventory constraints
-- Associate parts with products
-- Buy products using a "Buy Now" workflow
-- Prevent invalid inventory submissions
+## Application Architecture
 
-## Architecture Overview
-The application follows a layered design:
+The application follows a layered architecture:
 
-- Presentation layer: Thymeleaf-based user interface
-- Application layer: Spring Boot controllers and business logic
-- Data layer: JPA/Hibernate persistence
-- Validation layer: inventory and business rule enforcement
+- **Presentation Layer:** Thymeleaf-based web interface
+- **Application Layer:** Spring Boot controllers and business logic
+- **Persistence Layer:** JPA/Hibernate data access
+- **Validation Layer:** Inventory and business-rule enforcement
 
-## Solutions Architect Perspective
+## Proposed AWS Architecture
 
-This application can be deployed as a scalable, cloud-based system using AWS services with the following architecture:
+The application can be migrated to AWS using a scalable architecture built around managed cloud services.
 
-- Compute Layer: The Spring Boot application can be hosted on Amazon EC2 instances or deployed using Elastic Beanstalk for simplified management
-- Database Layer: Amazon RDS can be used to provide a managed relational database for storing product and inventory data
-- Load Balancing: An Application Load Balancer can distribute incoming traffic across multiple application instances to ensure high availability
-- Auto Scaling: Auto Scaling Groups can automatically adjust the number of EC2 instances based on demand, ensuring performance during peak usage
-- Monitoring and Logging: Amazon CloudWatch can be used to monitor application performance, log activity, and trigger alerts
-- Security: AWS IAM can control access to resources, and security groups can restrict network traffic to the application and database layers
+### Compute
 
-This architecture supports scalability, fault tolerance, and maintainability, aligning with AWS Well-Architected Framework principles.
+The Spring Boot application can run on Amazon EC2 or AWS Elastic Beanstalk.
+
+### Database
+
+Amazon RDS can replace the local H2 database to provide managed relational database persistence.
+
+### Load Balancing
+
+An Application Load Balancer can distribute incoming requests across multiple application instances.
+
+### Auto Scaling
+
+EC2 Auto Scaling can adjust application capacity based on demand and improve availability.
+
+### Monitoring and Logging
+
+Amazon CloudWatch can provide application monitoring, centralized logging, metrics, and alerting.
+
+### Security
+
+AWS IAM can provide role-based access to AWS resources, while security groups can restrict network traffic between the application and database tiers.
+
+## Proposed Cloud Architecture
+
+```text
+                User / Browser
+                      |
+                      v
+          Application Load Balancer
+                      |
+                      v
+              EC2 Auto Scaling
+          Spring Boot Application
+                      |
+                      v
+                 Amazon RDS
+
+Monitoring / Logging: Amazon CloudWatch
+Access Management:    AWS IAM
+Network Security:     Security Groups
+```
+
+This design demonstrates how the existing application could evolve from a locally hosted Spring Boot application into a scalable cloud deployment using AWS services.
+
+## Engineering Concepts Demonstrated
+
+- Object-oriented Java development
+- Spring Boot application development
+- Layered application architecture
+- JPA / Hibernate persistence
+- Relational data modeling
+- Business-rule validation
+- Inventory constraint enforcement
+- AWS architecture design
+- Scalability and availability planning
+- Cloud monitoring and security concepts
 
 ## Future Enhancements
-- Replace server-rendered pages with a REST API and modern front-end
+
+- Replace server-rendered pages with a REST API and modern front end
+- Migrate from H2 to Amazon RDS
 - Add authentication and role-based access control
 - Containerize the application with Docker
 - Implement CI/CD deployment pipelines
-- Add monitoring dashboards and alerting
+- Add CloudWatch dashboards and alarms
 - Store static assets and backups in Amazon S3
-
-## Resume Highlights
-
-- Designed and implemented a Spring Boot inventory management application supporting product-part relationships and inventory validation logic
-- Applied layered architecture principles, including controller, service, and data access layers
-- Implemented business rules for minimum and maximum inventory constraints to ensure data integrity
-- Mapped the application to a scalable AWS architecture, including EC2, RDS, and load balancing concepts
-- Demonstrated understanding of cloud design principles, including scalability, availability, and monitoring
-
-## Architecture Diagram
-
-User (Browser)
-        ↓
-Application Load Balancer
-        ↓
-EC2 / Elastic Beanstalk (Spring Boot Application)
-        ↓
-Amazon RDS (Database)
-
-Monitoring: Amazon CloudWatch  
-Security: IAM Roles and Security Groups
